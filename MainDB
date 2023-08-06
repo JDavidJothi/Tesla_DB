@@ -1,0 +1,28 @@
+CREATE TABLE tblEmployee2(EmployeeID INT,Name VARCHAR(255),ManagerID INT);
+
+INSERT INTO tblEmployee2 VALUES(1,'Mike',3);
+INSERT INTO tblEmployee2 VALUES(2,'Rob',1);
+INSERT INTO tblEmployee2 VALUES(3,'Todd',NULL);
+INSERT INTO tblEmployee2 VALUES(4,'Ben',1);
+INSERT INTO tblEmployee2 VALUES(5,'Sam',1);
+
+SELECT * FROM tblEmployee2;
+
+SELECT    E.Name AS Employee, M.Name AS Manager
+FROM      tblEmployee2 E
+LEFT JOIN tblEmployee2 M
+ON		  E.ManagerID = M.EmployeeID;
+
+SELECT    E.Name AS Employee, M.Name AS Manager
+FROM      tblEmployee2 E
+INNER JOIN tblEmployee2 M
+ON		  E.ManagerID = M.EmployeeID;
+
+SELECT    E.Name AS Employee, M.Name AS Manager
+FROM      tblEmployee2 E
+CROSS JOIN tblEmployee2 M
+
+SELECT    E.Name AS Employee, M.Name AS Manager
+FROM      tblEmployee2 E
+LEFT JOIN tblEmployee2 M
+ON		  E.ManagerID = M.EmployeeID;
